@@ -35,9 +35,36 @@
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
+
         // adding the constructor for the graphics layer
         const GraphicsLayer = new GraphicsLayer();
         map.add(GraphicsLayer);
+
+        //defining the geometry of the point
+        const point = { //Create a point
+          type: "point",
+          longitude: 2.350699,    //long lat of Notre Dame Cathedral
+          latitude: 48.852737
+        };
+
+        // Defining the maker style
+        const simpleMarkerSymbol = {
+          type: "simple-marker",
+          color: [186, 14, 11],     //red but make it frenchy
+          outline: {
+            color: [255, 255, 255], //white AKA France's favorite color
+            width: 1
+          }
+        };
+
+        //creating the point
+        const pointGraphic = new Graphic({
+          geometry: point,
+          symbol: simpleMarkerSymbol
+        })
+
+        //adding point to graphicsLayer
+        GraphicsLayer.add(pointGraphic);
     });
   </script>
 
