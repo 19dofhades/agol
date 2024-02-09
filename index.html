@@ -88,17 +88,7 @@
         //defining a polyline
         const polyline = new Polyline({
           paths: [
-            [2.35, 48.85], // Paris
-            [2.36, 48.87], // Paris
-            [2.34, 48.88]  // Paris
-          ],
-          spatialReference: {wkid: 4326}
-        }); 
-
-        //defining a polygon
-        const polygon = new Polygon({
-          rings: [
-          [2.304518, 48.870506], // Arc de Triomphe
+        [2.304518, 48.870506], // Arc de Triomphe
         [2.307207, 48.868651], // Avenue de la Grande Armée
         [2.308819, 48.866636], // Place de l'Étoile
         [2.309874, 48.863466], // Avenue des Champs-Élysées
@@ -107,6 +97,18 @@
         [2.300743, 48.858495], // Rue Royale
         [2.299778, 48.856783], // Place de la Madeleine
         [2.298920, 48.855717], // End of Champs-Élysées
+          ],
+          spatialReference: {wkid: 4326}
+        }); 
+
+        //defining a polygon
+        const polygon = new Polygon({
+          rings: [
+            [2.2980, 48.8550], // Starting point for Champ de Mars
+            [2.3000, 48.8550], //top right edge
+            [2.3020, 48.8530], //right corner
+            [2.2980, 48.8510], //bottom left corner
+            [2.2940, 48.8530] //left corner
           ],
           spatialReference: {wkid: 4326}
         });
