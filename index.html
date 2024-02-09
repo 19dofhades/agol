@@ -48,7 +48,7 @@
         };
 
         // Defining the maker style
-        const simpleMarkerSymbol = {
+        const squareMarkerSymbol = {
           type: "simple-marker",
           style: "square",          //make the point square
           color: [186, 14, 11],     //red but make it frenchy
@@ -61,7 +61,7 @@
         //creating the point graphic
         const pointGraphic = new Graphic({
           geometry: point,
-          symbol: simpleMarkerSymbol
+          symbol: squareMarkerSymbol //use square marker
         });
 
         //creating a new instance of GraphicsLayer
