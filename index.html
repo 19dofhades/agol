@@ -143,6 +143,22 @@
 
         //adding feature layer to map
         map.add(metroLayer);
+
+        //define a pop-up for metroLayer
+        const popupWx = {
+          "title": "Weather Stations",
+          "content": "<b>Name:</b> {NAME}<br><b>Installation:</b> {installati}<br>"
+        }
+        //adding the Const for the feature layer
+        const metroLayer = new FeatureLayer({
+          url:"https://services.arcgis.com/d3voDfTFbHOCRwVR/ArcGIS/rest/services/Stations_m%c3%a9t%c3%a9o_en_place/FeatureServer/layers",
+
+        //adding the popup here
+        outFields: ["NAME","installati"],
+        popupTemplate: popupWx
+        });
+        //adding the feature layer to the map
+        map.add(metroLayer);
     });
   </script>
 
