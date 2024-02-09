@@ -58,15 +58,25 @@
           }
         };
 
+        //defining pop-up properties
+        const popupTemplate = {
+          title: "{Name}",
+          content: "{Description}"
+        }
+        const attributes = {
+          Name: "Notre Dame Cathedral",
+          Description: "A French Cathedral, made famous due in part to the famous novel, The Hunchback of Notre Dame"
+        }
+
         //creating the point graphic
         const pointGraphic = new Graphic({
           geometry: point,
-          symbol: squareMarkerSymbol //use square marker
-        });
+          symbol: squareMarkerSymbol, //use square marker
 
-        //creating a new instance of GraphicsLayer
-        //const graphicsLayer = new GraphicsLayer();
-       // map.add(graphicsLayer);
+          //adding pop-up properties
+          attributes: attributes,
+          popupTemplate: popupTemplate
+        });
 
         //adding point graphic to graphicsLayer
         graphicsLayer.add(pointGraphic);
