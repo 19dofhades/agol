@@ -17,13 +17,11 @@
      "esri/config",
       "esri/Map",
       "esri/views/MapView",
-
-      // adding in the modules for the graphic and graphic layer
-      "esri/Graphic",
+      "esri/Graphic", // adding in the modules for the graphic and graphic layer
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
-      "esri/Popup"
+      "esri/widgets/Popup"
     ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, Popup) { //add graphics
 
       esriConfig.apiKey = "AAPKd03d2b0786ed4b72aa540fbc9cbaa258Qe0F34wevIz2pDoQAxSWMS7CWVypkKFS5BegW2yneQnQDEuJiLMpEmVh4pVD99Ko"; //my key
@@ -64,19 +62,17 @@
         const popupTemplate = {
           title: "{Name}",
           content: "{Description}"
-        }
+        };
         const attributes = {
           Name: "Notre Dame Cathedral",
           Description: "A French Cathedral, made famous due in part to the famous novel, The Hunchback of Notre Dame by Victor Hugo"
-        }
+        };
 
         //creating the point graphic
         const pointGraphic = new Graphic({
           geometry: point,
           symbol: squareMarkerSymbol, //use square marker
-
-          //adding pop-up properties
-          attributes: attributes,
+          attributes: attributes, //adding pop-up properties
           popupTemplate: popupTemplate
         });
 
@@ -130,9 +126,9 @@
         });
 
         // Add graphics to the graphics layer
-        graphicsLayer.addMany([polylineGraphic, polygonGraphic]);
-
-    });
+        graphicsLayer.add
+    }
+  )
   </script>
 
   <!-- css to make a full screen map -->
