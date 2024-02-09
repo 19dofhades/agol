@@ -22,7 +22,7 @@
       "esri/Graphic",
       "esri/layers/GraphicsLayer"
 
-    ], function (esriConfig,Map, MapView, Graphic, GraphicsLayer) { //add graphics
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer) { //add graphics
 
       esriConfig.apiKey = "AAPKd03d2b0786ed4b72aa540fbc9cbaa258Qe0F34wevIz2pDoQAxSWMS7CWVypkKFS5BegW2yneQnQDEuJiLMpEmVh4pVD99Ko"; //my key
       const map = new Map({
@@ -31,7 +31,7 @@
 
       const view = new MapView({
           map: map,
-          center: [-97.7431, 30.2672], // Longitude, latitude
+          center: [2.349014, 48.864716], // Longitude, latitude Paris
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
         });
@@ -62,6 +62,10 @@
           geometry: point,
           symbol: simpleMarkerSymbol
         })
+
+        //creating a new instance of GraphicsLayer
+        const graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
 
         //adding point to graphicsLayer
         GraphicsLayer.add(pointGraphic);
