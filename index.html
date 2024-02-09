@@ -21,8 +21,9 @@
       "esri/layers/GraphicsLayer",
       "esri/geometry/Polyline",
       "esri/geometry/Polygon",
-      "esri/widgets/Popup"
-    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, Popup) { //add graphics
+      "esri/widgets/Popup",
+      "esri/layers/FeatureLayer"
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, Popup, FeatureLayer) { //add graphics
 
       esriConfig.apiKey = "AAPKd03d2b0786ed4b72aa540fbc9cbaa258Qe0F34wevIz2pDoQAxSWMS7CWVypkKFS5BegW2yneQnQDEuJiLMpEmVh4pVD99Ko"; //my key
       const map = new Map({
@@ -134,8 +135,15 @@
         // Add graphics to the graphics layer
         graphicsLayer.add(polylineGraphic);
         graphicsLayer.add(polygonGraphic)
-    }
-  )
+
+        //adding the constructor for the feature layer
+        const metroLayer = new FeatureLayer ({
+          url: "https://services.arcgis.com/d3voDfTFbHOCRwVR/arcgis/rest/services/velib_emplacement_des_stations/FeatureServer"
+        });
+
+        //adding feature layer to map
+        map.add(metroLayer);
+    });
   </script>
 
   <!-- css to make a full screen map -->
