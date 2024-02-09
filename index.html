@@ -80,6 +80,12 @@
 
         //adding point graphic to graphicsLayer
         graphicsLayer.add(pointGraphic);
+
+        const popup = new Popup({
+          view: view
+        });
+
+        view.popup = popup;
     });
   </script>
 
