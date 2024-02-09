@@ -40,6 +40,28 @@
         const graphicsLayer = new GraphicsLayer();
         map.add(graphicsLayer);
 
+        //defining a polyline
+        const polyline = new Polyline({
+          paths: [
+            [2.35, 48.85], // Paris
+            [2.36, 48.87], // Paris
+            [2.34, 48.88]  // Paris
+          ],
+          spatialReference: {wkid: 4326}
+        }); 
+
+        //defining a polygon
+        const polygon = new Polygon({
+          rings: [
+            [2.2980, 48.8550], // Starting point for Champ de Mars
+            [2.3000, 48.8550], //top right edge
+            [2.3020, 48.8530], //right corner
+            [2.2980, 48.8510], //bottom left corner
+            [2.2940, 48.8530] //left corner
+          ],
+          spatialReference: {wkid: 4326}
+        });
+
         //defining the geometry of the point
         const point = { //Create a point
           type: "point",
@@ -47,7 +69,7 @@
           latitude: 48.852737
         };
 
-        // Defining the maker style
+        // Defining the marker style
         const squareMarkerSymbol = {
           type: "simple-marker",
           style: "square",          //make the point square
@@ -65,7 +87,7 @@
         }
         const attributes = {
           Name: "Notre Dame Cathedral",
-          Description: "A French Cathedral, made famous due in part to the famous novel, The Hunchback of Notre Dame"
+          Description: "A French Cathedral, made famous due in part to the famous novel, The Hunchback of Notre Dame by Victor Hugo"
         }
 
         //creating the point graphic
@@ -86,6 +108,24 @@
         });
 
         view.popup = popup;
+
+        //adding polyline and polygon graphics
+        const polylineGraphic = new Graphic ({
+          geometry: polyline,
+          symbols: {
+            type: "simple-line",
+            color: [0, 0, 139], //blue
+            width: 2
+          }
+        });
+
+        const polygonGraphic = new Graphic ({
+          geometry: polygon,
+          symbol: {
+            type: "simple-fill",
+            color: [85, 138, 50] //green
+          }
+        })
     });
   </script>
 
