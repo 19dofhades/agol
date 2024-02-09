@@ -37,8 +37,8 @@
         });
 
         // adding the constructor for the graphics layer
-        const GraphicsLayer = new GraphicsLayer();
-        map.add(GraphicsLayer);
+        const graphicsLayer = new GraphicsLayer();
+        map.add(graphicsLayer);
 
         //defining the geometry of the point
         const point = { //Create a point
@@ -57,18 +57,18 @@
           }
         };
 
-        //creating the point
+        //creating the point graphic
         const pointGraphic = new Graphic({
           geometry: point,
           symbol: simpleMarkerSymbol
         });
 
         //creating a new instance of GraphicsLayer
-        const graphicsLayer = new GraphicsLayer();
-        map.add(graphicsLayer);
+        //const graphicsLayer = new GraphicsLayer();
+       // map.add(graphicsLayer);
 
-        //adding point to graphicsLayer
-        GraphicsLayer.add(pointGraphic);
+        //adding point graphic to graphicsLayer
+        graphicsLayer.add(pointGraphic);
     });
   </script>
 
