@@ -20,9 +20,11 @@
 
       // adding in the modules for the graphic and graphic layer
       "esri/Graphic",
-      "esri/layers/GraphicsLayer"
-
-    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer) { //add graphics
+      "esri/layers/GraphicsLayer",
+      "esri/geometry/Polyline",
+      "esri/geometry/Polygon",
+      "esri/Popup"
+    ], function (esriConfig, Map, MapView, Graphic, GraphicsLayer, Polyline, Polygon, Popup) { //add graphics
 
       esriConfig.apiKey = "AAPKd03d2b0786ed4b72aa540fbc9cbaa258Qe0F34wevIz2pDoQAxSWMS7CWVypkKFS5BegW2yneQnQDEuJiLMpEmVh4pVD99Ko"; //my key
       const map = new Map({
@@ -39,28 +41,6 @@
         // adding the constructor for the graphics layer
         const graphicsLayer = new GraphicsLayer();
         map.add(graphicsLayer);
-
-        //defining a polyline
-        const polyline = new Polyline({
-          paths: [
-            [2.35, 48.85], // Paris
-            [2.36, 48.87], // Paris
-            [2.34, 48.88]  // Paris
-          ],
-          spatialReference: {wkid: 4326}
-        }); 
-
-        //defining a polygon
-        const polygon = new Polygon({
-          rings: [
-            [2.2980, 48.8550], // Starting point for Champ de Mars
-            [2.3000, 48.8550], //top right edge
-            [2.3020, 48.8530], //right corner
-            [2.2980, 48.8510], //bottom left corner
-            [2.2940, 48.8530] //left corner
-          ],
-          spatialReference: {wkid: 4326}
-        });
 
         //defining the geometry of the point
         const point = { //Create a point
@@ -109,23 +89,53 @@
 
         view.popup = popup;
 
-        //adding polyline and polygon graphics
-        const polylineGraphic = new Graphic ({
-          geometry: polyline,
-          symbols: {
-            type: "simple-line",
-            color: [0, 0, 139], //blue
-            width: 2
-          }
+        //defining a polyline
+        const polyline = new Polyline({
+          paths: [
+            [2.35, 48.85], // Paris
+            [2.36, 48.87], // Paris
+            [2.34, 48.88]  // Paris
+          ],
+          spatialReference: {wkid: 4326}
+        }); 
+
+        //defining a polygon
+        const polygon = new Polygon({
+          rings: [
+            [2.2980, 48.8550], // Starting point for Champ de Mars
+            [2.3000, 48.8550], //top right edge
+            [2.3020, 48.8530], //right corner
+            [2.2980, 48.8510], //bottom left corner
+            [2.2940, 48.8530] //left corner
+          ],
+          spatialReference: {wkid: 4326}
         });
 
-        const polygonGraphic = new Graphic ({
+        // Add polyline and polygon graphics
+        const polylineGraphic = new Graphic({
+          geometry: polyline,
+          symbol: {
+            type: "simple-line",
+            color: [0, 0, 139], // blue
+            width: 2
+          },
+          attributes: attributes,
+          popupTemplate: popupTemplate
+        });
+
+        const polygonGraphic = new Graphic({
           geometry: polygon,
           symbol: {
             type: "simple-fill",
-            color: [85, 138, 50] //green
-          }
-        })
+            color: [85, 138, 50, 0.5] // green with 50% transparency
+          },
+          attributes: attributes,
+          popupTemplate: popupTemplate
+        });
+
+        // Add graphics to the graphics layer
+        graphicsLayer.addMany([polylineGraphic, polygonGraphic]);
+
     });
   </script>
 
