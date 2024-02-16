@@ -172,7 +172,8 @@
         
         // adding the constructor for the feature layer for the shapefile
         const shapefileLayer = new FeatureLayer({
-          url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_points_shp/FeatureServer" // French airports
+          url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_points_shp/FeatureServer", // French airports
+          renderer: airportRenderer // apply the renderer to the feature layer
         });
 
         // adding shapefile layer to map
