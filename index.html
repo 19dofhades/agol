@@ -164,9 +164,10 @@
         const airportRenderer = {
           "type": "simple",
           "symbol": {
+            "type": "picture-marker" // changed to picture-marker type
             "url": "https://sounny.github.io/agol/outline_local_airport_black_24dp.png", // professor's URL
-            "width": "18px",
-            "height": "18px"
+            //"width": "18px",
+           // "height": "18px"
           }
         }
 
@@ -197,7 +198,7 @@ const airportLabels = {
 
           definitionExpression: "aeroway = 'helipad'", //adding sql filter for helipads
 
-          labelingInfor: [airportLabels] // adding the labels
+          labelingInfo: [airportLabels] // adding the labels
         });
 
         // adding shapefile layer to map
