@@ -195,7 +195,7 @@ const airportLabels = {
           url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_points_shp/FeatureServer", // French airports
           renderer: airportRenderer, // apply the renderer to the feature layer
 
-          definitionExpression: "aeroway" = 'helipad', //adding sql filter for helipads
+          definitionExpression: "aeroway = 'helipad'", //adding sql filter for helipads
 
           labelingInfor: [airportLabels] // adding the labels
         });
