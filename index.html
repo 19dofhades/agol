@@ -159,6 +159,14 @@
 
         // adding the feature layer to the map
         map.add(metroLayerWithPopup);
+
+        // adding the constructor for the feature layer for the shapefile
+        const shapefileLayer = new FeatureLayer({
+          url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_polygons_shp/FeatureServer" // French airports
+        });
+
+        // adding shapefile layer to map
+        map.add(shapefileLayer);
   
     });
   </script>
