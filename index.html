@@ -160,6 +160,16 @@
         // adding the feature layer to the map
         map.add(metroLayerWithPopup);
 
+        // setting up the airport icon
+        const airportRenderer = {
+          "type": "simple",
+          "symbol": {
+            "url": "https://github.com/19dofhades/agol/blob/main/outline_local_airport_black_24dp.png", // my URL
+            "width": "18px",
+            "height": "19=8px"
+          }
+        }
+        
         // adding the constructor for the feature layer for the shapefile
         const shapefileLayer = new FeatureLayer({
           url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_polygons_shp/FeatureServer" // French airports
