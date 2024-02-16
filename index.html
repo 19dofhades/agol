@@ -185,16 +185,16 @@ const airportRenderer = {
   type: "unique-value",
   field: "aeroway",
   defaultSymbol: {
-    type: "simple-marker",
-    color: "e8eb34", //yellow
-    size: 6
+   type: "picture-marker",
+   url: "https://sounny.github.io/agol/outline_local_airport_black_24dp.png", // Professor's URL
   },
   uniqueValueInfos: [
     {
-      value: "helipad", // Value to match
+      value: "helipad", // Value to helipads in the attribute table
       symbol: {
-        type: "picture-marker", // Changed to picture-marker type
-        url: "https://sounny.github.io/agol/outline_local_airport_black_24dp.png", // Professor's URL
+        type: "simple-marker",
+        color: "e8eb34", //yellow
+        size: 6
       }
     }
   ]
@@ -204,7 +204,6 @@ const airportRenderer = {
 const shapefileLayer = new FeatureLayer({
   url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/hotosm_fra_normandy_airports_points_shp/FeatureServer", // French airports
   renderer: airportRenderer, // Apply new renderer to the feature layer
-  definitionExpression: "aeroway = 'helipad'", // Filter for helipads
   labelingInfo: [airportLabels] // Adding labels
 });
 
